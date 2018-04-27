@@ -1,0 +1,7 @@
+[build]
+  publish = "public/"
+  command = "yarn demo"
+
+[[redirects]]
+  from = "/demo"
+  to = "/#/collections/test/entries/Youtube%20Test"
