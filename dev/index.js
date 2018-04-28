@@ -1,7 +1,7 @@
 import "./bootstrap.js";
 import CMS, { init } from "netlify-cms";
 import "netlify-cms/dist/cms.css";
-import { Control, Preview } from "../src";
+import { youtubeControl, youtubePreview } from "../src";
 
 const config = {
 	backend: {
@@ -31,6 +31,6 @@ const config = {
 	]
 };
 
-CMS.registerWidget("youtube", Control, Preview);
+CMS.registerWidget("youtube", youtubeControl, youtubePreview);
 
 init({ config });
