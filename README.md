@@ -4,6 +4,8 @@
 
 Provides a simple text input for youtube videos. Validates strings with a green text color and provides a preview image in the preview pane.
 
+## Looking for suggestions for additional functionality. PRs are Welcome!
+
 ![screenshot of youtube widget](screenshot.png)
 
 ## Install
@@ -15,7 +17,7 @@ npm install --save netlify-cms-widget-youtube
 ```
 
 ```js
-import youtube from "netlify-cms-widget-youtube";
+import { youtubeControl, youtubePreview } from "netlify-cms-widget-youtube";
 
 CMS.registerWidget("youtube", youtubeControl, youtubePreview);
 ```
@@ -23,7 +25,7 @@ CMS.registerWidget("youtube", youtubeControl, youtubePreview);
 Via `script` tag:
 
 ```html
-<script src="https://unpkg.com/netlify-cms-widget-youtube@^0.0.1"></script>
+<script src="https://unpkg.com/netlify-cms-widget-youtube@^0.0.4"></script>
 
 <script>
   CMS.registerWidget('youtube', youtubeControl, youtubePreview)
@@ -38,6 +40,13 @@ Add to your Netlify CMS configuration:
     fields:
       - { name: <fieldname>, label: <fieldlabel>, widget: youtube }
 ```
+
+## Roadmap
+
+*   [x] Youtube Image Preview
+*   [ ] Youtube Search function
+*   [ ] Inline Embed option
+*   [ ] Couple with a Youtube "Editor Widget"
 
 ## Support
 
