@@ -38,8 +38,12 @@ Add to your Netlify CMS configuration:
 
 ```yaml
     fields:
-      - { name: <fieldname>, label: <fieldlabel>, widget: youtube }
+      - { name: <fieldname>, label: <fieldlabel>, widget: youtube, exportID: false }
 ```
+
+|    Parameter | Definition                                   |
+| -----------: | -------------------------------------------- |
+| **exportID** | Returns the video ID alongside the given url |
 
 ## Roadmap
 

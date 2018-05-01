@@ -9,16 +9,22 @@ export default class Preview extends React.Component {
 		);
 		return youtubeID;
 	};
+
 	render() {
 		const { value } = this.props;
 		const combedValue = this.format(value);
+
 		return (
 			<div className="yt-widgetPreview">
-				<img
-					style={{ width: "80%" }}
-					src={`http://img.youtube.com/vi/${combedValue}/maxresdefault.jpg`}
-					alt="Youtube Video Preview"
-				/>
+				{combedValue !== "" ? (
+					<img
+						style={{ width: "80%" }}
+						src={`http://img.youtube.com/vi/${combedValue}/maxresdefault.jpg`}
+						alt="Youtube Video Preview"
+					/>
+				) : (
+					<span />
+				)}
 			</div>
 		);
 	}
