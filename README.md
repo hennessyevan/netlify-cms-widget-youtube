@@ -4,7 +4,7 @@
 
 Provides a simple text input for youtube videos. Validates strings with a green text color and provides a preview image in the preview pane.
 
-### Looking for suggestions for additional functionality. PRs are Welcome!
+## Looking for suggestions for additional functionality. PRs are Welcome!
 
 ![screenshot of youtube widget](screenshot.png)
 
