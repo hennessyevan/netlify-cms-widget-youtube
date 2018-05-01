@@ -2,8 +2,14 @@
 	"name": "netlify-cms-widget-youtube",
 	"author": "Evan Hennessy",
 	"description": "A netlify widget for youtube embeds.",
-	"keywords": ["netlify", "netlify-cms", "cms", "widget", "youtube"],
-	"version": "0.0.5",
+	"keywords": [
+		"netlify",
+		"netlify-cms",
+		"cms",
+		"widget",
+		"youtube"
+	],
+	"version": "0.0.4",
 	"homepage": "https://github.com/hennessyevan/netlify-cms-widget-youtube",
 	"license": "MIT",
 	"main": "dist/main.js",
