@@ -47,24 +47,17 @@ export default class Control extends React.Component {
 		const { valid, youtubeID } = this.state;
 
 		return (
-			<div>
-				{field.get("exportId") ? (
-					<input type="hidden" id={`${forID}-id`} value={youtubeID} />
-				) : (
-					""
-				)}
-				<input
-					type="text"
-					id={forID}
-					style={{
-						color: valid ? "#00A86B" : ""
-					}}
-					className={classNameWrapper}
-					value={value || ""}
-					valid={valid}
-					onChange={this.validateURL}
-				/>
-			</div>
+			<input
+				type="text"
+				id={forID}
+				style={{
+					color: valid ? "#00A86B" : ""
+				}}
+				className={classNameWrapper}
+				value={value || ""}
+				valid={valid}
+				onChange={this.validateURL}
+			/>
 		);
 	}
 }
