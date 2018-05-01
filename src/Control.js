@@ -4,7 +4,7 @@ import React from "react";
 export default class Control extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { valid: false, youtubeID: "" };
+		this.state = { valid: false };
 	}
 	static propTypes = {
 		onChange: PropTypes.func.isRequired,
@@ -17,24 +17,13 @@ export default class Control extends React.Component {
 		value: ""
 	};
 
-	format = input => {
-		const youtubeID = input.replace(
-			/(?:https?:\/\/)(?:www\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=))([A-Za-z0-9]{10,12})/gi,
-			"$1"
-		);
-		return youtubeID;
-	};
-
 	validateURL = e => {
 		const ytReg = new RegExp(
 			"(?:https?://)?(?:(?:(?:www.?)?youtube.com(?:/(?:(?:watch?.*?(v=[^&s]+).*)|(?:v(/.*))|(channel/.+)|(?:user/(.+))|(?:results?(search_query=.+))))?)|(?:youtu.be(/.*)?))"
 		);
 
 		if (ytReg.test(e.target.value)) {
-			this.setState({
-				valid: true,
-				youtubeID: this.format(e.target.value)
-			});
+			this.setState({ valid: true });
 		} else {
 			this.setState({ valid: false });
 		}
@@ -43,8 +32,8 @@ export default class Control extends React.Component {
 	};
 
 	render() {
-		const { forID, field, value, onChange, classNameWrapper } = this.props;
-		const { valid, youtubeID } = this.state;
+		const { forID, value, onChange, classNameWrapper } = this.props;
+		const { valid } = this.state;
 
 		return (
 			<input
