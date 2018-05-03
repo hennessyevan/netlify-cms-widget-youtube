@@ -9,7 +9,8 @@
 		"widget",
 		"youtube"
 	],
-	"version": "0.0.4",
+	"version": "0.1.0",
+	"repository": "https://github.com/hennessyevan/netlify-cms-widget-youtube",
 	"homepage": "https://github.com/hennessyevan/netlify-cms-widget-youtube",
 	"license": "MIT",
 	"main": "dist/main.js",
@@ -26,7 +27,7 @@
 		"netlify-cms": "^1.5.0",
 		"react": "^16.3.2",
 		"source-map-loader": "^0.2.3",
-		"style-loader": "^0.21.0",
+		"style-loader": "^0.20.3",
 		"webpack": "^4.6.0",
 		"webpack-cli": "^2.0.14",
 		"webpack-serve": "^0.3.1"
@@ -38,8 +39,7 @@
 		"react": "^16"
 	},
 	"scripts": {
-		"start":
-			"webpack-serve --max_old_space_size=4092 --log-level error --open-path '/#/collections/test/entries/Youtube%20Test'",
+		"start": "webpack-serve --log-level error",
 		"demo": "webpack --display errors-only --devtool source-map",
 		"build": "cross-env NODE_ENV=production webpack",
 		"prepublishOnly": "npm run build"
