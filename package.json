@@ -9,7 +9,7 @@
 		"widget",
 		"youtube"
 	],
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"repository": "https://github.com/hennessyevan/netlify-cms-widget-youtube",
 	"homepage": "https://github.com/hennessyevan/netlify-cms-widget-youtube",
 	"license": "MIT",
@@ -39,7 +39,7 @@
 		"react": "^16"
 	},
 	"scripts": {
-		"start": "webpack-serve --log-level error",
+		"start": "webpack-serve --log-level error --open-path '/#/collections/test/entries/Youtube%20Test'",
 		"demo": "webpack --display errors-only --devtool source-map",
 		"build": "cross-env NODE_ENV=production webpack",
 		"prepublishOnly": "npm run build"
