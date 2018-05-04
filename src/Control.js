@@ -32,8 +32,8 @@ export default class Control extends React.Component {
 	};
 
 	render() {
-		const { forID, value, onChange, classNameWrapper } = this.props;
-		const { valid } = this.state;
+		const { forID, value, onChange, classNameWrapper } = this.props,
+			{ valid } = this.state;
 
 		return (
 			<input

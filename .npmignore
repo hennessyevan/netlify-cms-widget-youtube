@@ -1,0 +1,7 @@
+dev
+dist
+*.log
+.vscode
+*.md
+*.toml
+*.png
