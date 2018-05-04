@@ -6,6 +6,4 @@ if (typeof window !== "undefined") {
 	window.youtubePreview = Preview;
 }
 
-CMS.registerWidget("youtube", Control, Preview);
-
 export { Control as youtubeControl, Preview as youtubePreview };

@@ -1,5 +1,4 @@
 dev
-dist
 *.log
 .vscode
 *.md

@@ -17,15 +17,11 @@ export default class Preview extends React.Component {
 		console.log(combedValue);
 		return (
 			<div className="yt-widgetPreview">
-				{combedValue.length > 10 ? (
-					<img
-						style={{ width: "100%" }}
-						src={`http://img.youtube.com/vi/${combedValue}/maxresdefault.jpg`}
-						alt="Youtube Video Preview"
-					/>
-				) : (
-					""
-				)}
+				<img
+					style={{ width: "100%" }}
+					src={`http://img.youtube.com/vi/${combedValue}/maxresdefault.jpg`}
+					alt="Youtube Video Preview"
+				/>
 			</div>
 		);
 	}
