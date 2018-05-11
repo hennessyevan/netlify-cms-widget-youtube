@@ -1,3 +1,9 @@
+[![NPM](https://img.shields.io/npm/v/netlify-cms-widget-youtube.svg)](https://www.npmjs.com/package/netlify-cms-widget-youtube)
+![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/netlify-cms-widget-youtube.svg)
+![Sourcegraph for Repo Reference Count](https://img.shields.io/sourcegraph/rrc/github.com/hennessyevan/netlify-cms-widget-youtube.svg)
+
+
+
 # netlify-cms-widget-youtube
 
 [Check out a demo!](https://netlify-cms-widget-youtube.netlify.com/demo)
