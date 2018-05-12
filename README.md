@@ -45,6 +45,23 @@ Add to your Netlify CMS configuration:
       - { name: <fieldname>, label: <fieldlabel>, widget: youtube }
 ```
 
+The widget returns an object from [jsVideoUrlParser](https://github.com/Zod-/jsVideoUrlParser)
+
+```graphql
+{
+	url: String
+	info {
+		id: String
+		provider: String
+		mediaType: String
+		params {
+			start: Integer
+			index: String
+		}
+	}
+}
+```
+
 ## Roadmap
 
 *   [x] Youtube Image Preview
