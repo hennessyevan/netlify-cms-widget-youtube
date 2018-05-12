@@ -1,26 +1,41 @@
 import PropTypes from "prop-types";
 import React from "react";
+import urlParser from "js-video-url-parser";
 
 export default class Preview extends React.Component {
-	format = input => {
-		const regex = /(?:https?:\/\/)(?:www\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=))([A-Za-z0-9]{10,12})/i;
-		const youtubeID = input.replace(regex, "$1");
-		if (regex.test(input)) {
-			return youtubeID;
-		} else {
-			return;
-		}
-	};
+	constructor(props) {
+		super(props);
+		this.state = {
+			videoInfo: {}
+		};
+	}
+
+	getImage(videoInfo) {
+		return urlParser.create({
+			videoInfo,
+			format: "longImage",
+			params: { imageQuality: "maxresdefault" }
+		});
+	}
+
 	render() {
 		const { value } = this.props;
-		const combedValue = this.format(value);
-		console.log(combedValue);
+		const imageURL = this.getImage(value.videoInfo);
+
+		console.log(value);
+
 		return (
 			<div className="yt-widgetPreview">
 				<img
 					style={{ width: "100%" }}
-					src={`http://img.youtube.com/vi/${combedValue}/maxresdefault.jpg`}
-					alt="Youtube Video Preview"
+					src={
+						imageURL
+							? imageURL
+							: `https://via.placeholder.com/720x405?text=${
+									value.videoInfo.provider
+							  }+${value.videoInfo.id}`
+					}
+					alt={`${value.videoInfo.provider} Video Preview`}
 				/>
 			</div>
 		);

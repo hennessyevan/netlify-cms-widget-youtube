@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
+import urlParser from "js-video-url-parser";
 
 export default class Control extends React.Component {
 	constructor(props) {
@@ -18,17 +19,16 @@ export default class Control extends React.Component {
 	};
 
 	validateURL = e => {
-		const ytReg = new RegExp(
-			"(?:https?://)?(?:(?:(?:www.?)?youtube.com(?:/(?:(?:watch?.*?(v=[^&s]+).*)|(?:v(/.*))|(channel/.+)|(?:user/(.+))|(?:results?(search_query=.+))))?)|(?:youtu.be(/.*)?))"
-		);
-
-		if (ytReg.test(e.target.value)) {
+		if (urlParser.parse(e.target.value)) {
 			this.setState({ valid: true });
 		} else {
 			this.setState({ valid: false });
 		}
 
-		this.props.onChange(e.target.value);
+		this.props.onChange({
+			url: e.target.value,
+			videoInfo: urlParser.parse(e.target.value)
+		});
 	};
 
 	render() {
@@ -43,7 +43,7 @@ export default class Control extends React.Component {
 					color: valid ? "#00A86B" : ""
 				}}
 				className={classNameWrapper}
-				value={value || ""}
+				value={value.url || ""}
 				valid={valid}
 				onChange={this.validateURL}
 			/>
