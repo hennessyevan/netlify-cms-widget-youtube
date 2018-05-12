@@ -55,7 +55,7 @@ The widget returns an object from [jsVideoUrlParser](https://github.com/Zod-/jsV
 		provider: String
 		mediaType: String
 		params {
-			start: Integer
+			start: Int
 			index: String
 		}
 	}
