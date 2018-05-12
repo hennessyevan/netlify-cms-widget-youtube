@@ -2,8 +2,6 @@
 ![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/netlify-cms-widget-youtube.svg)
 ![Sourcegraph for Repo Reference Count](https://img.shields.io/sourcegraph/rrc/github.com/hennessyevan/netlify-cms-widget-youtube.svg)
 
-
-
 # netlify-cms-widget-youtube
 
 [Check out a demo!](https://netlify-cms-widget-youtube.netlify.com/demo)
@@ -50,6 +48,7 @@ Add to your Netlify CMS configuration:
 ## Roadmap
 
 *   [x] Youtube Image Preview
+*   [x] Broader Video Support
 *   [ ] Youtube Search function
 *   [ ] Inline Embed option
 *   [ ] Couple with a Youtube "Editor Widget"
