@@ -15,8 +15,8 @@ const config = {
 			label: "test",
 			files: [
 				{
-					file: "test.yml",
-					name: "Youtube Test",
+					file: "./src/test.yml",
+					name: "youtube_test",
 					label: "Youtube Test",
 					fields: [
 						{

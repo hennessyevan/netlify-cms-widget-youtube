@@ -10,12 +10,12 @@ export default class Control extends React.Component {
 	static propTypes = {
 		onChange: PropTypes.func.isRequired,
 		forID: PropTypes.string,
-		value: PropTypes.node,
+		value: PropTypes.object,
 		classNameWrapper: PropTypes.string.isRequired
 	};
 
 	static defaultProps = {
-		value: ""
+		value: {}
 	};
 
 	validateURL = e => {
@@ -31,16 +31,26 @@ export default class Control extends React.Component {
 		});
 	};
 
+	isValid = () => {
+		return this.state.valid;
+	};
+
 	render() {
-		const { forID, value, onChange, classNameWrapper } = this.props,
-			{ valid } = this.state;
+		const {
+			forID,
+			value,
+			onChange,
+			onChangeObject,
+			classNameWrapper
+		} = this.props;
+		const { valid } = this.state;
 
 		return (
 			<input
 				type="text"
 				id={forID}
 				style={{
-					color: valid ? "#00A86B" : ""
+					borderColor: valid ? "#00A86B" : ""
 				}}
 				className={classNameWrapper}
 				value={value.url || ""}
