@@ -21,7 +21,7 @@ npm install --save netlify-cms-widget-youtube
 ```
 
 ```js
-import { youtubeControl, youtubePreview } from "netlify-cms-widget-youtube";
+import { youtubeControl, youtubePreview } from "netlify-cms-widget-youtube/src";
 
 CMS.registerWidget("youtube", youtubeControl, youtubePreview);
 ```
