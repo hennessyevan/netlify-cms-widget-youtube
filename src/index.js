@@ -1,5 +1,5 @@
-import Control from "./Control";
-import Preview from "./Preview";
+import Control from "./Control.js";
+import Preview from "./Preview.js";
 
 if (typeof window !== "undefined") {
 	window.youtubeControl = Control;

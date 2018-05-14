@@ -19,8 +19,10 @@ export default class Preview extends React.Component {
 	}
 
 	render() {
-		const { value } = this.props;
-		const imageURL = this.getImage(value.videoInfo);
+		const value = this.props.value;
+		const videoInfo =
+			value === typeof String ? urlParser.parse(value) : value;
+		const imageURL = this.getImage(videoInfo);
 
 		console.log(value);
 
@@ -32,10 +34,10 @@ export default class Preview extends React.Component {
 						imageURL
 							? imageURL
 							: `https://via.placeholder.com/720x405?text=${
-									value.videoInfo.provider
-							  }+${value.videoInfo.id}`
+									videoInfo.provider
+							  }+${videoInfo.id}`
 					}
-					alt={`${value.videoInfo.provider} Video Preview`}
+					alt={`${videoInfo.provider} Video Preview`}
 				/>
 			</div>
 		);

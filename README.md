@@ -42,23 +42,17 @@ Add to your Netlify CMS configuration:
 
 ```yaml
     fields:
-      - { name: <fieldname>, label: <fieldlabel>, widget: youtube }
+      - { name: <fieldname>, label: <fieldlabel>, widget: youtube, extraInfo: false }
 ```
 
-The widget returns an object from [jsVideoUrlParser](https://github.com/Zod-/jsVideoUrlParser)
+When `extraInfo: true` **[BETA]** the widget returns an object from [jsVideoUrlParser](https://github.com/Zod-/jsVideoUrlParser)
 
 ```graphql
 {
 	url: String
-	info {
-		id: String
-		provider: String
-		mediaType: String
-		params {
-			start: Int
-			index: String
-		}
-	}
+	id: String
+	provider: String
+	mediaType: String
 }
 ```
 

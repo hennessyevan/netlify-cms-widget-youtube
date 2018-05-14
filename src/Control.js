@@ -9,13 +9,14 @@ export default class Control extends React.Component {
 	}
 	static propTypes = {
 		onChange: PropTypes.func.isRequired,
+		field: PropTypes.object,
 		forID: PropTypes.string,
-		value: PropTypes.object,
+		value: PropTypes.node,
 		classNameWrapper: PropTypes.string.isRequired
 	};
 
 	static defaultProps = {
-		value: {}
+		value: ""
 	};
 
 	validateURL = e => {
@@ -25,10 +26,17 @@ export default class Control extends React.Component {
 			this.setState({ valid: false });
 		}
 
-		this.props.onChange({
-			url: e.target.value,
-			videoInfo: urlParser.parse(e.target.value)
-		});
+		if (this.props.field.get("extraInfo")) {
+			const { id, provider, mediaType } = urlParser.parse(e.target.value);
+			this.props.onChange({
+				url: e.target.value,
+				id: id,
+				provider: provider,
+				mediaType: mediaType
+			});
+		} else {
+			this.props.onChange(e.target.value);
+		}
 	};
 
 	isValid = () => {
@@ -36,14 +44,9 @@ export default class Control extends React.Component {
 	};
 
 	render() {
-		const {
-			forID,
-			value,
-			onChange,
-			onChangeObject,
-			classNameWrapper
-		} = this.props;
+		const { forID, value, onChange, classNameWrapper } = this.props;
 		const { valid } = this.state;
+		const extraInfo = this.props.field.get("extraInfo");
 
 		return (
 			<input
@@ -53,7 +56,7 @@ export default class Control extends React.Component {
 					borderColor: valid ? "#00A86B" : ""
 				}}
 				className={classNameWrapper}
-				value={value.url || ""}
+				value={extraInfo ? value.url : value}
 				valid={valid}
 				onChange={this.validateURL}
 			/>
