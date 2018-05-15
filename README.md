@@ -4,7 +4,7 @@
 
 # netlify-cms-widget-youtube
 
-[Check out a demo!](https://netlify-cms-widget-youtube.netlify.com/demo)
+[Check out a demo!](https://netlify-cms-widget-youtube.netlify.com/#/collections/test/entries/youtube_test)
 
 Provides a simple text input for youtube videos. Validates strings with a green text color and provides a preview image in the preview pane.
 
