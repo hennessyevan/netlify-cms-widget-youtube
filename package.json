@@ -2,13 +2,7 @@
 	"name": "netlify-cms-widget-youtube",
 	"author": "Evan Hennessy",
 	"description": "A netlify widget for youtube embeds.",
-	"keywords": [
-		"netlify",
-		"netlify-cms",
-		"cms",
-		"widget",
-		"youtube"
-	],
+	"keywords": ["netlify", "netlify-cms", "cms", "widget", "youtube"],
 	"version": "0.2.1",
 	"repository": "https://github.com/hennessyevan/netlify-cms-widget-youtube",
 	"homepage": "https://github.com/hennessyevan/netlify-cms-widget-youtube",
@@ -20,6 +14,7 @@
 		"babel-plugin-transform-export-extensions": "^6.22.0",
 		"babel-plugin-transform-object-rest-spread": "^6.26.0",
 		"babel-preset-env": "^1.6.1",
+		"babel-preset-es2015": "^6.24.1",
 		"babel-preset-react": "^6.24.1",
 		"cross-env": "^5.1.4",
 		"css-loader": "^0.28.11",
@@ -37,12 +32,11 @@
 		"prop-types": "^15.6.1"
 	},
 	"peerDependencies": {
-		"babel-core": "6",
-		"react": "^16",
-		"slate": "^0.33.6"
+		"react": "^16"
 	},
 	"scripts": {
-		"start": "webpack-serve --log-level error --open-path '/#/collections/test/entries/youtube_test'",
+		"start":
+			"webpack-serve --log-level error --open-path '/#/collections/test/entries/youtube_test'",
 		"demo": "webpack --display errors-only --devtool source-map",
 		"build": "cross-env NODE_ENV=production webpack",
 		"prepublishOnly": "npm run build"

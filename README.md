@@ -29,7 +29,7 @@ CMS.registerWidget("youtube", youtubeControl, youtubePreview);
 Via `script` tag:
 
 ```html
-<script src="https://unpkg.com/netlify-cms-widget-youtube@^0.0.4"></script>
+<script src="https://unpkg.com/netlify-cms-widget-youtube@^0.2.1"></script>
 
 <script>
   CMS.registerWidget('youtube', youtubeControl, youtubePreview)

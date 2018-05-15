@@ -22,8 +22,7 @@ const config = {
 						{
 							name: "youtube_widget",
 							label: "Youtube",
-							widget: "youtube",
-							extraInfo: true
+							widget: "youtube"
 						}
 					]
 				}
