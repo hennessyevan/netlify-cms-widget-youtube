@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const developmentConfig = {
 	mode: "development",
@@ -35,11 +36,11 @@ const productionConfig = {
 		rules: [
 			{
 				test: /\.jsx?$/,
-				exclude: /node_modules/,
 				loader: "babel-loader"
 			}
 		]
 	},
+	plugins: [new UglifyJsPlugin()],
 	devtool: "source-map"
 };
 

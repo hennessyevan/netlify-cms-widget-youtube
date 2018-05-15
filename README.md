@@ -21,7 +21,7 @@ npm install --save netlify-cms-widget-youtube
 ```
 
 ```js
-import { youtubeControl, youtubePreview } from "netlify-cms-widget-youtube/src";
+import youtube from "netlify-cms-widget-youtube";
 
 CMS.registerWidget("youtube", youtubeControl, youtubePreview);
 ```
@@ -29,7 +29,7 @@ CMS.registerWidget("youtube", youtubeControl, youtubePreview);
 Via `script` tag:
 
 ```html
-<script src="https://unpkg.com/netlify-cms-widget-youtube@^0.2.1"></script>
+<script src="https://unpkg.com/netlify-cms-widget-youtube@^0.2.3"></script>
 
 <script>
   CMS.registerWidget('youtube', youtubeControl, youtubePreview)
