@@ -29,7 +29,7 @@ CMS.registerWidget("youtube", youtubeControl, youtubePreview);
 Via `script` tag:
 
 ```html
-<script src="https://unpkg.com/netlify-cms-widget-youtube@^0.2.3"></script>
+<script src="https://unpkg.com/netlify-cms-widget-youtube@^0.3.0"></script>
 
 <script>
   CMS.registerWidget('youtube', youtubeControl, youtubePreview)
@@ -42,26 +42,37 @@ Add to your Netlify CMS configuration:
 
 ```yaml
     fields:
-      - { name: <fieldname>, label: <fieldlabel>, widget: youtube, extraInfo: false }
+      - { name: <fieldname>, label: <fieldlabel>, widget: youtube, extraInfo: false, APIkey: "<KEY>" }
 ```
 
-When `extraInfo: true` **[BETA]** the widget returns an object from [jsVideoUrlParser](https://github.com/Zod-/jsVideoUrlParser)
+Enabling `extraInfo` will return an object in frontmatter
 
-```graphql
-{
+```js
+<fieldname>:
 	url: String
 	id: String
-	provider: String
 	mediaType: String
-}
+	imageURL: String
 ```
+
+If you provide an API KEY in the configuration you will get additional information in the Control (as seen in the screenshot above). You can use this API key here to test but it's better you get your own to make sure it always works!
+
+## FAQ
+
+#### Q: My control doesn't show the title or description
+
+You need to add an API Key to the widget settings. Learn about getting an API Key [here](https://developers.google.com/youtube/v3/getting-started)
+
+#### Q: How can I get and image url in my output
+
+You need to add `extraInfo: true` to your Netlify CMS configuration <small>(_usually config.yml_)</small>
 
 ## Roadmap
 
-*   [x] Youtube Image Preview
-*   [x] Broader Video Support
+*   [x] Youtube Image in Preview
+*   [x] Extended Details in Control from Youtube Data API
+*   [x] Optional YAML object output
 *   [ ] Youtube Search function
-*   [ ] Inline Embed option
 *   [ ] Couple with a Youtube "Editor Widget"
 
 ## Support

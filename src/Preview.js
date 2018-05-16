@@ -11,34 +11,33 @@ export default class Preview extends React.Component {
 	}
 
 	getImage(videoInfo) {
-		return urlParser.create({
-			videoInfo,
-			format: "longImage",
-			params: { imageQuality: "maxresdefault" }
-		});
+		if (videoInfo) {
+			return urlParser.create({
+				videoInfo,
+				format: "longImage",
+				params: { imageQuality: "maxresdefault" }
+			});
+		}
 	}
 
 	render() {
 		const value = this.props.value;
-		const videoInfo =
-			value === typeof String ? urlParser.parse(value) : value;
-		const imageURL = this.getImage(videoInfo);
+		const { url, id, mediaType, provider = "youtube" } = value;
+		const { imageURL = "" } = this.getImage({ url, id, mediaType, provider });
 
 		console.log(value);
 
 		return (
 			<div className="yt-widgetPreview">
-				<img
-					style={{ width: "100%" }}
-					src={
-						imageURL
-							? imageURL
-							: `https://via.placeholder.com/720x405?text=${
-									videoInfo.provider
-							  }+${videoInfo.id}`
-					}
-					alt={`${videoInfo.provider} Video Preview`}
-				/>
+				{value.imageURL || imageURL ? (
+					<img
+						style={{ width: "100%" }}
+						src={value.imageURL ? value.imageURL : imageURL}
+						alt="Youtube Video Preview"
+					/>
+				) : (
+					""
+				)}
 			</div>
 		);
 	}
