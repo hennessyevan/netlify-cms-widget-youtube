@@ -2,6 +2,8 @@
 ![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/netlify-cms-widget-youtube.svg)
 [![npm](https://img.shields.io/npm/dw/netlify-cms-widget-youtube.svg)](https://www.npmjs.com/package/netlify-cms-widget-youtube)
 
+## NO LONGER MAINTAINED - LOOKING FOR MAINTAINER
+
 # netlify-cms-widget-youtube
 
 [Check out a demo!](https://netlify-cms-widget-youtube.netlify.com/#/collections/test/entries/youtube_test)
