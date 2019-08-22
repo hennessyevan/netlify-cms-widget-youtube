@@ -21,8 +21,37 @@ export default class Control extends React.Component {
 		value: ""
 	};
 
+	componentDidUpdate(prevProps, prevState) {
+		const { data, valid } = this.state;
+		const isDataChanged = (data.title !== prevState.data.title);
+		if (valid && isDataChanged) {
+			try {
+				const { id, provider, mediaType } = urlParser.parse(data.url);
+				const videoInfo = urlParser.parse(data.url);
+				this.props.onChange({
+					url: data.url,
+					id: id,
+					mediaType: mediaType,
+					imageURL: urlParser.create({
+						videoInfo,
+						format: "longImage",
+						params: { imageQuality: "maxresdefault" }
+					}),
+					title: data.title,
+					description: data.description,
+					publishedAt: data.publishedAt,
+					tags: data.tags
+				});
+			} catch (err) {
+				console.error("Not a valid Youtube URL");
+				this.props.onChange(data.url);
+			}
+		}
+	}
+
 	fetchFromAPI = e => {
-		const { id = "" } = urlParser.parse(e.target.value) || "";
+		const url = e.target.value;
+		const { id = "" } = urlParser.parse(url) || "";
 		const APIKey = this.props.field.get("APIkey");
 		const data = fetch(
 			`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=${APIKey}`
@@ -30,12 +59,16 @@ export default class Control extends React.Component {
 			.then(res => res.json())
 			.then(json => {
 				if (json !== undefined) {
-					this.setState({ valid: true, data: json.items[0].snippet });
+					this.setState({
+						valid: true, 
+						data: {...json.items[0].snippet, url}
+					});
 				} else {
 					this.setState({ valid: false });
 				}
 			})
 			.catch(err => {
+				console.log({err});
 				this.setState({ valid: false, data: {} });
 				return false;
 			});
@@ -54,25 +87,7 @@ export default class Control extends React.Component {
 	};
 
 	writeOut = e => {
-		if (this.props.field.get("extraInfo")) {
-			try {
-				const { id, provider, mediaType } = urlParser.parse(e.target.value);
-				const videoInfo = urlParser.parse(e.target.value);
-				this.props.onChange({
-					url: e.target.value,
-					id: id,
-					mediaType: mediaType,
-					imageURL: urlParser.create({
-						videoInfo,
-						format: "longImage",
-						params: { imageQuality: "maxresdefault" }
-					})
-				});
-			} catch (err) {
-				console.error("Not a valid Youtube URL");
-				this.props.onChange(e.target.value);
-			}
-		} else {
+		if (!this.props.field.get("extraInfo")) {
 			this.props.onChange(e.target.value);
 		}
 	};
