@@ -37,6 +37,10 @@ export default class Control extends React.Component {
 						format: "longImage",
 						params: { imageQuality: "maxresdefault" }
 					}),
+					embedURL: urlParser.create({
+						videoInfo,
+						format: "embed"
+					}),
 					title: data.title,
 					description: data.description,
 					publishedAt: data.publishedAt,
