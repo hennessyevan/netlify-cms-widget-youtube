@@ -55,6 +55,7 @@ Enabling `extraInfo` will return an object in frontmatter
 	id: String
 	mediaType: String
 	imageURL: String
+	embedURL: String
 ```
 
 If you provide an API KEY in the configuration you will get additional information in the Control (as seen in the screenshot above). You can use this API key here to test but it's better you get your own to make sure it always works!
