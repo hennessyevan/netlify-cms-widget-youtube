@@ -10,8 +10,8 @@
 		"youtube"
 	],
 	"version": "0.3.1",
-	"repository": "https://github.com/jlev/netlify-cms-widget-youtube",
-	"homepage": "https://github.com/jlev/netlify-cms-widget-youtube",
+	"repository": "https://github.com/hennessyevan/netlify-cms-widget-youtube",
+	"homepage": "https://github.com/hennessyevan/netlify-cms-widget-youtube",
 	"license": "MIT",
 	"main": "dist/main.js",
 	"devDependencies": {
