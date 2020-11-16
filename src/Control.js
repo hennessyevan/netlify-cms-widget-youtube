@@ -97,6 +97,10 @@ export default class Control extends React.Component {
 	};
 
 	isValid = () => {
+		const isRequired = this.props.field.get("required");
+		if (isRequired === false && !this.props.value) {
+			return true;
+		}
 		return this.state.valid;
 	};
 
@@ -172,7 +176,7 @@ export default class Control extends React.Component {
 								fontSize: "1rem"
 							}}
 							value={extraInfo ? value.url : value}
-							valid={valid}
+							valid={this.isValid}
 							placeholder={`Youtube URL`}
 							onChange={this.fetchFromAPI}
 						/>
@@ -186,7 +190,7 @@ export default class Control extends React.Component {
 					id={forID}
 					className={classNameWrapper}
 					value={extraInfo ? value.url : value}
-					valid={valid}
+					valid={this.isValid}
 					placeholder={`Youtube URL`}
 					onChange={this.validateURL}
 					onFocus={setActiveStyle}
